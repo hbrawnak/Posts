@@ -12,4 +12,4 @@ def register(request):
             return redirect('blog-home')
     else:
         form = UserRegisterForm()
-    return render(request, 'users/register.html', {'form': form})
+    return render(request, 'users/register.html', {'form': form, 'title': 'Registration'})
