@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import (ListView, DetailView, CreateView)
 from .models import Post
 
 
@@ -19,10 +19,16 @@ class PostListView(ListView):
     model = Post
     template_name = 'blog/home.html'
     context_object_name = 'posts' #Refer to 'posts' in home context.
+    fields = ['title', 'home']
     ordering = ['-created_at'] #orderBy created_at DESC
 
 class PostDetailView(DetailView):
     model = Post
+
+class CreatePostView(CreateView):
+    model = Post
+    fields = ['title', 'content']
+
 
 
 
